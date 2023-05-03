@@ -90,7 +90,7 @@ public class UserService {
     }
 
     public User create(RegistrationDTO request, List<Role> roles) {
-        User user = new User(request.userEmail(), passwordEncoder.encode(request.password()), roles);
+        User user = new User(request.firstName(), request.lastName(), request.userEmail(), passwordEncoder.encode(request.password()), roles);
         insert(user);
         return user;
     }
