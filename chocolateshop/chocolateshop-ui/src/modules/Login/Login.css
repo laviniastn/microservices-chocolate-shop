@@ -1,0 +1,83 @@
+.login {
+  width: 100%;
+  height: 340px;
+  background-image: url("../../../src/asserts/login.JPG");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.errors {
+  font-size: 7px;
+  margin-left: 22px;
+  color: crimson;
+}
+
+.loginForm {
+  width: 250px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 50px;
+  position: absolute;
+  border-radius: 5%;
+  align-items: center;
+  right: 0;
+}
+
+.center {
+  text-align: center;
+  color: rgb(92, 64, 51);
+}
+
+.left {
+  text-align: left;
+}
+
+label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  font-size: 10px;
+  color: rgb(92, 64, 51);
+  margin: 1px;
+  gap: 10px;
+  align-items: left;
+}
+
+.email {
+  margin-left: 20px;
+  height: 18px;
+}
+
+.pwd {
+  margin-left: 5px;
+  height: 18px;
+}
+
+input {
+  padding: 2px;
+  width: 120px;
+  font-size: 8px;
+  background-color: transparent;
+  border: 0.3px solid;
+  color: rgb(92, 64, 51);
+}
+
+.button {
+  font-size: 10px;
+  margin-top: 30px;
+  height: 10;
+  width: 30;
+  background-color: rgb(92, 64, 51);
+  outline: none;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
