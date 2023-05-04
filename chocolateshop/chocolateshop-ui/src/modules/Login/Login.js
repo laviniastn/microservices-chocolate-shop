@@ -3,6 +3,7 @@ import "./Login.css";
 import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 import { login } from "./../../services/ApiService";
+import { useNavigate } from "react-router-dom";
 
 const validate = (values) => {
   const errors = {};
@@ -27,6 +28,8 @@ const validate = (values) => {
 const Login = () => {
   const [user, setUser] = useState({});
 
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       userEmail: "",
@@ -38,10 +41,27 @@ const Login = () => {
       await login(values).then((result) => {
         const userData = result.data;
         setUser(userData);
+        pageRedirection(result.data.roles[0].roleName);
       });
     },
   });
 
+  const pageRedirection = (role) => {
+    switch (role) {
+      case "ROLE_CUSTOMER":
+        navigate("/customer");
+        break;
+      case "ROLE_ADMIN":
+        navigate("/admin");
+        break;
+      case "ROLE_SELLER":
+        navigate("/seller");
+        break;
+      default:
+        navigate("/login");
+        break;
+    }
+  };
   useEffect(() => {
     console.log("Login user: " + user.userEmail);
   }, [user]);
