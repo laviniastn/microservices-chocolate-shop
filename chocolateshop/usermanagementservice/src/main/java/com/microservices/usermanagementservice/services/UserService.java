@@ -6,6 +6,7 @@ import com.microservices.usermanagementservice.model.User;
 import com.microservices.usermanagementservice.repositories.UserRepository;
 import com.microservices.usermanagementservice.validators.UserFieldsValidator;
 import com.microservices.utils.errorhandler.ResourceNotFoundException;
+import com.microservices.utils.hashing.PasswordHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -80,7 +82,7 @@ public class UserService {
         this.userRepository.deleteById(id);
     }
 
-    public User create(RegistrationDTO request) {
+    public User create(RegistrationDTO request) throws NoSuchAlgorithmException {
         List<Role> roles = new ArrayList<>();
         try {
             roles.add(roleService.getByName(Role.ROLE_CUSTOMER));
@@ -89,11 +91,16 @@ public class UserService {
         return create(request, roles);
     }
 
-    public User create(RegistrationDTO request, List<Role> roles) {
-        User user = new User(request.firstName(), request.lastName(), request.userEmail(), passwordEncoder.encode(request.password()), roles);
+    public User create(RegistrationDTO request, List<Role> roles) throws NoSuchAlgorithmException {
+        User user = new User(request.firstName(), request.lastName(), request.userEmail(), PasswordHash.hashPassword(request.password()), roles);
         insert(user);
         return user;
     }
+
+    public User findByUserEmailAndUserPassword(String userEmail, String userPassword) {
+        return userRepository.findByUserEmailAndUserPassword(userEmail, userPassword);
+    }
+
 
 }
 

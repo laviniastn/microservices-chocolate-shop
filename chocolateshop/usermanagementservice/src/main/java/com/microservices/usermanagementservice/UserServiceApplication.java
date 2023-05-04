@@ -41,9 +41,9 @@ public class UserServiceApplication {
             List<Role> roles3 = new ArrayList<>();
             roles3.add(roleAdmin);
 
-            userService.create(new RegistrationDTO("Ana","Pop","customer@gmail.com" , "1234"), roles1);
-            userService.create(new RegistrationDTO("Ioan","Serban","seller@gmail.com", "1234"), roles2);
-            userService.create(new RegistrationDTO("Lavinia","Stan","admin@gmail.com", "1234"), roles3);
+            userService.create(new RegistrationDTO("Ana","Pop","customer@gmail.com" , "12345"), roles1);
+            userService.create(new RegistrationDTO("Ioan","Serban","seller@gmail.com", "12345"), roles2);
+            userService.create(new RegistrationDTO("Lavinia","Stan","admin@gmail.com", "12345"), roles3);
 
         };
     }

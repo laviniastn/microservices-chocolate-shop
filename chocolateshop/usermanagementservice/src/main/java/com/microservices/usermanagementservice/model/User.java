@@ -1,5 +1,6 @@
 package com.microservices.usermanagementservice.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity(name = "users")
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
