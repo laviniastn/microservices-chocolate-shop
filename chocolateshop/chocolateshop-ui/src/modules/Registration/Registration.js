@@ -1,6 +1,8 @@
 import React from "react";
 import "./Registration.css";
 import { useFormik } from "formik";
+import { useState, useEffect } from "react";
+import { createUser } from "./../../services/ApiService";
 
 const validate = (values) => {
   const errors = {};
@@ -16,39 +18,63 @@ const validate = (values) => {
     errors.lastName = "Must be 3 characters at least";
   }
 
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length < 5) {
-    errors.password = "Must be 5 characters at least";
+  if (!values.userPassword) {
+    errors.userPassword = "Required";
+  } else if (values.userPassword.length < 5) {
+    errors.userPassword = "Must be 5 characters at least";
   }
 
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
+  if (!values.userEmail) {
+    errors.userEmail = "Required";
+  } else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.userEmail)
+  ) {
+    errors.userEmail = "Invalid email address";
   }
 
   return errors;
 };
 
 const Registration = () => {
+  const [user, setUser] = useState({});
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
-      email: "",
-      password: "",
+      userEmail: "",
+      userPassword: "",
+      roles: [
+        {
+          id: 1,
+          roleName: "ROLE_CUSTOMER",
+        },
+      ],
     },
     validate,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      values.roles = [
+        {
+          id: 1,
+          roleName: "ROLE_CUSTOMER",
+        },
+      ];
       alert(JSON.stringify(values, null, 2));
+      await createUser(values).then((result) => {
+        const userData = result.data;
+        setUser(userData);
+      });
     },
   });
+
+  useEffect(() => {
+    console.log("Registrated user: " + user.userEmail);
+  }, [user]);
 
   return (
     <div className="registration">
       <form className="registrationForm" onSubmit={formik.handleSubmit}>
-        <p className="center">Create account</p>
+        <p className="center">Create customer account</p>
         <label>
           <p className="left">First Name:</p>
           <input
@@ -84,32 +110,36 @@ const Registration = () => {
         <label>
           <p className="left">Email:</p>
           <input
-            id="email"
-            name="email"
+            id="userEmail"
+            name="userEmail"
             className="email"
             type="text"
             placeholder="Enter your email address"
             onChange={formik.handleChange}
-            value={formik.values.email}
+            value={formik.values.userEmail}
           />
         </label>
         <p className="errors">
-          {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+          {formik.errors.userEmail ? (
+            <div>{formik.errors.userEmail}</div>
+          ) : null}
         </p>
         <label>
           <p>Password:</p>
           <input
-            id="password"
-            name="password"
+            id="userPassword"
+            name="userPassword"
             className="pwd"
             type="password"
             placeholder="Enter your password"
             onChange={formik.handleChange}
-            value={formik.values.password}
+            value={formik.values.userPassword}
           />
         </label>
         <p className="errors">
-          {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+          {formik.errors.userPassword ? (
+            <div>{formik.errors.userPassword}</div>
+          ) : null}
         </p>
         <label>
           <button className="button" type="submit">

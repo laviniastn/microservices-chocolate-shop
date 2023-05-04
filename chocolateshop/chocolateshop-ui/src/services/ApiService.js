@@ -1,9 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8083";
+const BASE_URL = `http://localhost:8083`;
 
 function login(user) {
-  return axios.post("http://localhost:8083/userservice/auth/login", user);
+  return axios.post(`${BASE_URL}/userservice/auth/login`, user);
 }
 
-export { login };
+function createUser(user) {
+  return axios.post(`${BASE_URL}/userservice/users/create`, user);
+}
+
+export { login, createUser };

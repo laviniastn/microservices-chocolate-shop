@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
