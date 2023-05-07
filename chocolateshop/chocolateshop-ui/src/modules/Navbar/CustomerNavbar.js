@@ -34,11 +34,9 @@ function CustomerNavbar() {
             <img src={cart} alt="" width="20" height="20" />
           </a>
         </li>
-        <li>
-          <button className="link" onClick={handleLogout}>
-            Logout
-          </button>
-        </li>
+        <button className="link" onClick={handleLogout}>
+          Logout
+        </button>
       </ul>
     </div>
   );
