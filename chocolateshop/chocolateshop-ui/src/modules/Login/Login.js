@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 import { login } from "./../../services/ApiService";
 import { useNavigate } from "react-router-dom";
+import { registerSuccessfulLogin } from "../../services/AuthService";
 
 const validate = (values) => {
   const errors = {};
@@ -27,7 +28,6 @@ const validate = (values) => {
 
 const Login = () => {
   const [user, setUser] = useState({});
-
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -40,8 +40,9 @@ const Login = () => {
       alert(JSON.stringify(values, null, 2));
       await login(values).then((result) => {
         const userData = result.data;
-        setUser(userData);
+        setUser(userData.userEmail);
         pageRedirection(result.data.roles[0].roleName);
+        registerSuccessfulLogin(userData.userEmail);
       });
     },
   });
@@ -61,6 +62,7 @@ const Login = () => {
         navigate("/login");
         break;
     }
+    window.location.reload();
   };
   useEffect(() => {
     console.log("Login user: " + user.userEmail);

@@ -10,4 +10,8 @@ function createUser(user) {
   return axios.post(`${BASE_URL}/userservice/users/create`, user);
 }
 
-export { login, createUser };
+function findUserByEmail(email) {
+  return axios.get(`${BASE_URL}/userservice/users/email=` + email);
+}
+
+export { login, createUser, findUserByEmail };

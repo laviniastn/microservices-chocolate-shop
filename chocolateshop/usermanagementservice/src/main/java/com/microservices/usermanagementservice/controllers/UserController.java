@@ -52,6 +52,12 @@ public class UserController {
         return ResponseEntity.ok().body(userService.findAll().get(id-1));
     }
 
+    @GetMapping(value = "/email={email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable("email") String email) {
+        logger.debug("Get user by email");
+        return ResponseEntity.ok().body(userService.getByUserEmail(email));
+    }
+
     @GetMapping(value = "/ping")
     public ResponseEntity<String> getPing() {
         logger.debug("Get user by id");
