@@ -1,14 +1,13 @@
 import React from "react";
-import "./CustomerNavbar.css";
+import "./AdminNavbar.css";
 import logo from "../../../src/asserts/logo.png";
-import cart from "../../../src/asserts/cart.png";
 import { logout } from "../../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { isUserLoggedIn } from "../../services/AuthService";
 
 import { useState } from "react";
 
-function CustomerNavbar() {
+function AdminNavbar() {
   const [userLogged] = useState(isUserLoggedIn());
   const navigate = useNavigate();
 
@@ -27,15 +26,10 @@ function CustomerNavbar() {
       </div>
       <ul className="navigation">
         <li>
-          <a href="/products">Products</a>
+          <a href="/users">Users</a>
         </li>
         <li>
-          <a href="/cart">
-            <img src={cart} alt="" width="20" height="20" />
-          </a>
-        </li>
-        <li>
-          <a href="/customer">Profile</a>
+          <a href="/admin">Profile</a>
         </li>
         <button className="link" onClick={handleLogout}>
           Logout
@@ -45,4 +39,4 @@ function CustomerNavbar() {
   );
 }
 
-export default CustomerNavbar;
+export default AdminNavbar;

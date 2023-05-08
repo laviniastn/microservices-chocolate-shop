@@ -10,13 +10,13 @@ const validate = (values) => {
   const errors = {};
 
   if (!values.userPassword) {
-    errors.userPassword = "Required";
+    errors.userPassword = "Password required";
   } else if (values.userPassword.length < 5) {
     errors.userPassword = "Must be 5 characters at least";
   }
 
   if (!values.userEmail) {
-    errors.userEmail = "Required";
+    errors.userEmail = "Email required";
   } else if (
     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.userEmail)
   ) {
@@ -42,7 +42,10 @@ const Login = () => {
         const userData = result.data;
         setUser(userData.userEmail);
         pageRedirection(result.data.roles[0].roleName);
-        registerSuccessfulLogin(userData.userEmail);
+        registerSuccessfulLogin(
+          userData.userEmail,
+          result.data.roles[0].roleName
+        );
       });
     },
   });
