@@ -33,6 +33,7 @@ function App() {
   const [userLoggedEmail, setUserLoggedEmail] = useState(
     getLoggedInUserEmail()
   );
+
   const [userLoggedRole, setUserLoggedRole] = useState(getLoggedInUserRole());
 
   useEffect(() => {

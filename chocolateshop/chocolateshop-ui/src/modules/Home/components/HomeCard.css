@@ -1,0 +1,37 @@
+.card {
+  width: 180px;
+  height: 230px;
+  color: black;
+}
+
+.body {
+  width: 180px;
+  height: 100px;
+}
+
+.img {
+  width: 180px;
+  height: 80px;
+}
+
+.text {
+  margin-top: 0px;
+  font-size: 7px;
+  height: 30px;
+}
+.title {
+  margin-top: 0px;
+  font-size: 12px;
+  height: 20px;
+}
+
+.button {
+  font-size: 10px;
+  margin-top: 0px;
+  height: 10;
+  width: 30;
+  background-color: rgb(92, 64, 51);
+  outline: none;
+  color: white;
+  border-radius: 5px;
+}

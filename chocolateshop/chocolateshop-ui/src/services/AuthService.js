@@ -13,7 +13,6 @@ function logout() {
 
 function isUserLoggedIn() {
   let user = sessionStorage.getItem(USER_SESSION_ATTRIBUTE_EMAIL);
-  console.log(user);
   if (user === null || user === "") return false;
   return true;
 }
