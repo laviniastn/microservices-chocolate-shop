@@ -1,0 +1,92 @@
+.contactEmail {
+  width: 300px;
+  height: 440px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.errors {
+  font-size: 7px;
+  margin-left: 22px;
+  color: crimson;
+}
+
+.contactForm {
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  margin-top: 50px;
+  margin-right: 50px;
+  position: absolute;
+  border-radius: 5%;
+  align-items: center;
+  right: 0;
+}
+
+.center {
+  text-align: center;
+  color: rgb(92, 64, 51);
+}
+
+.left {
+  text-align: left;
+}
+
+label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  font-size: 10px;
+  color: rgb(92, 64, 51);
+  margin: 1px;
+  gap: 10px;
+  align-items: left;
+}
+
+.email {
+  margin-left: 20px;
+  height: 18px;
+}
+
+.msg {
+  margin-left: 27px;
+  height: 50px;
+}
+
+textarea {
+  padding: 2px;
+  width: 180px;
+  font-size: 8px;
+  background-color: transparent;
+  border: 0.3px solid;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+input {
+  padding: 2px;
+  width: 180px;
+  font-size: 8px;
+  background-color: transparent;
+  border: 0.3px solid;
+}
+
+.button {
+  font-size: 10px;
+  margin-top: 30px;
+  height: 10;
+  width: 30;
+  background-color: rgb(92, 64, 51);
+  outline: none;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}

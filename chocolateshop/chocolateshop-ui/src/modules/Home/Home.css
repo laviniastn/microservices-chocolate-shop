@@ -7,7 +7,7 @@
 }
 
 .box1 {
-  width: 60%;
+  width: 70%;
   background-color: rgb(249, 247, 247);
   text-align: right;
   color: white;
@@ -15,7 +15,7 @@
 }
 
 .box2 {
-  width: 40%;
+  width: 30%;
   background-image: url("../../../src/asserts/home/homewall.JPG");
   background-repeat: no-repeat;
   text-align: right;

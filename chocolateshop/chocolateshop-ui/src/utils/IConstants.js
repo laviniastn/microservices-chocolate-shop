@@ -8,4 +8,17 @@ const homeCards = [
   },
 ];
 
-export { homeCards };
+const contactCards = [
+  {
+    id: 1,
+    title: "Chef Alain Ducasse",
+    img: require("../asserts/contact/contact1.JPG"),
+  },
+  {
+    id: 2,
+    title: "Chef Alice Waters",
+    img: require("../asserts/contact/contact2.JPG"),
+  },
+];
+
+export { homeCards, contactCards };
