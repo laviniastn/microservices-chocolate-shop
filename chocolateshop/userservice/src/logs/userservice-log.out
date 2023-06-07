@@ -1,3 +1,0 @@
-DEBUG http-nio-8083-exec-2 com.microservices.usermanagementservice.controllers.UserController -Get all users
-DEBUG http-nio-8083-exec-3 com.microservices.usermanagementservice.controllers.UserController -Create user
-DEBUG http-nio-8083-exec-6 com.microservices.usermanagementservice.controllers.UserController -Get all users
