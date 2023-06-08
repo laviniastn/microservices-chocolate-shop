@@ -31,9 +31,11 @@ function AdminNavbar() {
         <li>
           <a href="/admin">Profile</a>
         </li>
-        <button className="link" onClick={handleLogout}>
-          Logout
-        </button>
+        <li>
+          <button className="link" onClick={handleLogout}>
+            Logout
+          </button>
+        </li>
       </ul>
     </div>
   );

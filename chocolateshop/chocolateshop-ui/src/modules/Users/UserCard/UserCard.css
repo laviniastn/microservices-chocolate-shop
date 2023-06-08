@@ -1,0 +1,35 @@
+.myuser {
+  width: 180px;
+  height: 300px;
+  color: black;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.userbody {
+  width: 120px;
+  height: 50px;
+  text-align: left;
+}
+
+.userimg {
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 120px;
+  height: 120px;
+}
+
+.usertitle {
+  margin-top: 0px;
+  font-size: 10px;
+  margin-left: 30px;
+  height: 30px;
+  width: 120px;
+}
+.usertext {
+  margin-top: 0px;
+  margin-left: 30px;
+  font-size: 7px;
+  height: 30px;
+  width: 120px;
+}
