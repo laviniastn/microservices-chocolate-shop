@@ -14,4 +14,12 @@ function findUserByEmail(email) {
   return axios.get(`${BASE_URL}/userservice/users/email=` + email);
 }
 
-export { login, createUser, findUserByEmail };
+function getAllUsers() {
+  return axios.get(`${BASE_URL}/userservice/users`);
+}
+
+function deleteUserById(id) {
+  return axios.delete(`${BASE_URL}/userservice/users/delete/` + id);
+}
+
+export { login, createUser, findUserByEmail, getAllUsers, deleteUserById };

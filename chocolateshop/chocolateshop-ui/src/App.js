@@ -12,7 +12,7 @@ import Customer from "./modules/Users/Customer/Customer";
 import Admin from "./modules/Users/Admin/Admin";
 import Seller from "./modules/Users/Seller/Seller";
 import Products from "./modules/Products/Products";
-import Users from "./modules/Users/Users";
+import UsersManagement from "./modules/Users/UsersManagement/UsersManagement";
 import Inventory from "./modules/Inventory/Inventory";
 import AdminNavbar from "./modules/Navbar/AdminNavbar";
 import SellerNavbar from "./modules/Navbar/SellerNavbar";
@@ -98,7 +98,7 @@ function App() {
         )}
 
         {isUserLoggedIn() === true && hasUserLoggedInAdminRole() === true && (
-          <Route path="/users" element={<Users />} />
+          <Route path="/users" element={<UsersManagement />} />
         )}
 
         {isUserLoggedIn() === true && hasUserLoggedInSellerRole() === true && (
